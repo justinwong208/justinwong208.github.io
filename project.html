@@ -14,6 +14,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://d3js.org/d3.v6.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -30,149 +32,144 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="#intro" class="active">Description</a></li>
-							<li><a href="#first">Resume</a></li>
-							<li><a href="#second">Assignments</a></li>
-							<li><a href="#finalP">Visualizations</a></li>
-							<li><a href="#links">Links</a></li>
+							<li><a href="#intro" class="active">Overview</a></li>
+							<li><a href="#first">Choropleth</a></li>
+							<li><a href="#second">Cleveland</a></li>
+							<li><a href="#finalP">Line Chart</a></li>
+							<li><a href="#links">Final Thoughts</a></li>
 
 						</ul>
 					</nav>
 
-				<!-- Main -->
+<!-- Main -->
 					<div id="main">
 
-						<!-- Introduction -->
+<!-- Introduction -->
 							<section id="intro" class="main">
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>Traveling</h2>
+											<h2>Plan to travel anywhere during the summer?</h2>
 										</header>
-										<p>Some Description of my TRAVELING Project.</p>
-										<p>Link Below opens Alpha pdf (Located at the bottom of pdf)</p>
-										<ul class="actions">
-											<li><a href="AlphaReport.pdf" class="button primary">Alpha</a></li>
-											<!--<li><a href="generic.html" class="button">Learn More</a></li>-->
-										</ul>
+										<h2> Said no one in 2020. </h2>
+										<h3>Okay I'm pretty sure cancelling a trip to Japan is the least of worries
+											when the COVID-19 virus began to spread around the world. 
+											Many dealt with problems such as shutting down businesses, isolated from family/friends, and loss of loved ones. 
+											However, that trip cancellation like many others meant a huge decline in business for the people in the tourist 
+											industry which makes up 10% of the global gdp, worth around 9 trillion dollars. Let's find out how much of a toll COVID had on tourism  around the world, 
+											which countries' tourism were effected the most, and by how much?</h3>
+										
 									</div>
-									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+									<!--<span class="image"><img src="images/pic01.jpg" alt="" /></span> -->
 								</div>
 							</section>
 
-						<!-- Resume -->
+<!-- Choropleth -->
 							<section id="first" class="main special">
+								
 								<header class="major">
-									<h2>Resume</h2>
+									<h2>Quarantine = No Business</h2>
 								</header>
+								<h3>	Starting in the Hubei Province of China, majority of all the countries in the world began implementing preventive measures 
+									in late March / early April of 2020. For most countries the severity of the measures depended on 
+									the control and containment of COVID-19 infected individuals. Besides lockdowns and closing of businesses, 
+									countries also prioritzed the control on international travel.
+								</h3>
+								<!---<h3>
+									Like many others, my family and I stayed at home, 
+									rarely going out starting since the first lockdown in San Francisco on March 13, 2020.
+									But because lockdowns and closing of businesses was only maintained for short periods at a time, 
+									the number of infected and Covid related deaths kept coming back in waves, at least in California, 
+									pushing back the full reopening of San Francisco to June 2021.
+									</h3>-->
+								<svg width="800" height="800" id="svg1"></svg>
+								<script src="choro/choropleth.js"></script>
+								<h5>The choropleth only shows data for the top ten countries based on their incoming international arrivals. 
+									Days with bans on high-risk regions, and full border closure are also included.</h5>
 								<ul class="features">
-									<!--<li>
-										<span class="icon solid major style1 fa-code"></span>
-										<h3>Ipsum consequat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>-->
 									<li>
-										<span class="icon major style3 fa-copy"></span>
-										<h3>Work in Progress</h3>
-										<p>I know I should have some type of resume out already at this point in my CS career. 
-											Planning on putting one out this semester.
+										<!--<span class="icon major style3 fa-copy"></span>-->
+										<h3></h3>
+										<p>
 										</p>
 									</li>
-									<!--<li>
-										<span class="icon major style5 fa-gem"></span>
-										<h3>Dolor nullam</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>-->
 								</ul>
 								<footer class="major">
 									<ul class="actions special">
-										<!--<li><a href="generic.html" class="button">Learn More</a></li>-->
 									</ul>
 								</footer>
 							</section>
 
-						<!-- Assignment 1 -->
+<!-- Cleveland Dot Plot -->
 							<section id="second" class="main special">
 								<header class="major">
-									<h2>Assignments</h2>
-									<!--<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>-->
+									<h2>Who's the most impacted?</h2>
 								</header>
-								<!--<ul class="statistics">
-									<li class="style1">
-										<span class="icon solid fa-code-branch"></span>
-										<strong>5,120</strong> This
-									</li>
-									<li class="style2">
-										<span class="icon fa-folder-open"></span>
-										<strong>8,192</strong> Will
-									</li>
-									<li class="style3">
-										<span class="icon solid fa-signal"></span>
-										<strong>2,048</strong> Be
-									</li>
-									<li class="style4">
-										<span class="icon solid fa-laptop"></span>
-										<strong>4,096</strong> Avg Tabs kept open 
-									</li>
-									<li class="style5">
-										<span class="icon fa-gem"></span>
-										<strong>1,024</strong> Later
-									</li>
-								</ul>-->
-								<!--<p class="content">DESCRIBE MY DATA SET</p>-->
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="DATAVIS - ASS1.pdf" class="button primary">A1</a></li>
-										<li><a href="https://vizhub.com/justinwong208/81032fd98705459b93d0409c456eb382" class="button primary">A2: Bar Graph</a></li>
-										<li><a href="https://vizhub.com/justinwong208/b2992c196c2c4daf8ae97414a4d3f33a" class="button primary">A2: Dot Plot</a></li>
-										<li><a href="https://vizhub.com/justinwong208/975f22dafb254193ab6d22494d32ac5b?edit=files" class="button primary">A3: Histogram</a></li>
-										
-									</ul>
-									<ul class="actions special">
-										<li><a href="https://vizhub.com/justinwong208/40071c5a2edb49df9ec3660920dfe1ce?file=index.html" class="button primary">A3: Box Plot</a></li>
-										<li><a href="https://vizhub.com/justinwong208/fa1394769ad64c3c8f206b10f188b9e3?edit=files" class="button primary">A4: Bar Graph in D3</a></li>
-										<li><a href="https://vizhub.com/justinwong208/fc7774ad1bf44cae91fa13fe0b2a04c6" class="button primary">A5: Bubble Chart</a></li>
-										<li><a href="https://vizhub.com/justinwong208/cacb9923f2f1461ab42d44e773d81917" class="button primary">A5: Line Chart</a></li>
-										<li><a href="https://vizhub.com/justinwong208/94d77c5de47e4c9d88c401495852b74c?edit=files&file=index.html" class="button primary">A6: Sequential Color Scale</a></li>
-									</ul>
-								</footer>
-							</section>
+								<h3>Besides a potentially fatal virus, quaranting upon arrival was a huge factor in the decline of international travel. 
+									At the peak of COVID infections and deaths and even up to the end of 2021, quarantining was around 5 to 14 days long,
+									 and travelers weren't willing to spend a majority or their entirety of their vacation time in a hotel room. </h3>
 
-						<!-- Final Project -->
-							<section id="finalP" class="main special">
-								<header class="major">
-									<h2>Visualizations</h2>
-									<p>
-										<ul>
-											<l><a href="chloro/index.html" class="button primary">Chloropleth</a></l>
-											<l><a href="cleveland/index.html" class="button primary">Cleveland</a></l>
-											
+								<h3>Who would be the most impacted by the huge drop in tourists?</h3>
 
-										</ul>
-									</p>
-								</header>
-								<footer class="major">
-									<ul class="actions special">
-										<!--<li><a href="generic.html" class="button primary">Get Started</a></li>
-										<li><a href="generic.html" class="button">Learn More</a></li>-->
-									</ul>
-								</footer>
-							</section>
-
-						<!-- Get Started -->
-						<section id="links" class="main special">
-							<header class="major">
-								<h2>My Frequently Visited Links</h2>
+								<h2>Technical Issues displaying Cleveland Dot Plot</h2>
+								
 								<p>
 									<ul>
-										<l><a href="https://usfca.instructure.com" class="button">Canvas</a></l>
-										<l><a href="https://www.youtube.com" class="button">Youtube</a></l>
-										<l><a href="https://mail.google.com/mail/u/2/#inbox" class="button">Gmail</a></l>
+										<!--<l><a href="cleveland/index.html" class="button primary">Cleveland</a></l>-->
+										<l><a href="https://vizhub.com/justinwong208/873d4a2b8e1b4ef1b1329bdd7d809852?edit=files&file=index.html" class="button primary">Cleveland</a></l>
 
 									</ul>
 								</p>
+								<!--<svg width="600" height="700" id="svg2"></svg>
+								<script src="cleveland/cleveland.js"></script>-->
+								
+								<!--<p class="content">DESCRIBE MY DATA SET</p>-->
+								<footer class="major">
+									
+								</footer>
+							</section>
+
+<!-- Line Chart -->
+							<section id="finalP" class="main special">
+								<header class="major">
+									<h2>Line Chart</h2>
+									<p>
+									<!-- -Include how does the decline in tourist has effected the country
+									_Include how much money was lost overall (us and world) _
+									_Include the overall world percentage in loss of tourist arrivals  -->
+									</p>
+									<h3>At the end of 2020, global international arrivals dropped 73%. </h3>
+								</header>
+								<h3>With the international halt on tourism worldwide, who were the ones that were hit the hardest?</h3>
+								<h2>Technical Issues displaying Line Chart SVG</h2>
+								
+								<p>
+									<ul>
+										<l><a href="https://vizhub.com/justinwong208/34bd721281ac470ea86a35994fbf0682?edit" class="button primary">Line Chart</a></l>
+
+									</ul>
+								</p>
+							<!--<svg width="1000" height="700" id="svg3"></svg>
+								<script src="lineChart/linechart.js"></script>-->
+								<footer class="major">
+									<ul class="actions special">
+									</ul>
+								</footer>
+							</section>
+
+<!-- Final Thoughts -->
+						<section id="links" class="main special">
+							<header class="major">
+								<h2>Final Thoughts</h2>
+								
+								
 							</header>
+							<p>
+								<ul>
+									<l><a href="AlphaReport.pdf" class="button primary">Alpha</a></l>
+								</ul>
+							</p>
+							
 							<footer class="major">
 								<ul class="actions special">
 									<!--<li><a href="generic.html" class="button primary">Get Started</a></li>
@@ -182,36 +179,6 @@
 						</section>
 
 					</div>
-
-				<!-- Footer -->
-					<!--<footer id="footer">
-						<section>
-							<h2>Aliquam sed mauris</h2>
-							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
-							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn More</a></li>
-							</ul>
-						</section>
-						<section>
-							<h2>Etiam feugiat</h2>
-							<dl class="alt">
-								<dt>Address</dt>
-								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-								<dt>Phone</dt>
-								<dd>(000) 000-0000 x 0000</dd>
-								<dt>Email</dt>
-								<dd><a href="#">information@untitled.tld</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
-							</ul>
-						</section>
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>-->
 
 			</div>
 

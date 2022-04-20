@@ -1,0 +1,31 @@
+Country,Code,Year,perc
+France ,FRA,2019,
+France ,FRA,2020,-82
+France ,FRA,2021,-72
+Spain ,ESP,2019,0.8
+Spain ,ESP,2020,-77.3
+Spain ,ESP,2021,-63
+United States,USA,2019,-0.4
+United States,USA,2020,-75.5
+United States,USA,2021,-72
+China,CHN,2019,4.5
+China,CHN,2020,-88
+China,CHN,2021,-90
+Italy ,ITA,2019,11.9
+Italy ,ITA,2020,-61
+Italy ,ITA,2021,-59
+Turkey ,TUR,2019,9
+Turkey ,TUR,2020,-72
+Turkey ,TUR,2021,-45
+Mexico,MEX,2019,4.4
+Mexico,MEX,2020,-46
+Mexico,MEX,2021,-29
+Thailand,THA,2019,1.8
+Thailand,THA,2020,-83
+Thailand,THA,2021,-99
+Germany ,DEU,2019,1.9
+Germany ,DEU,2020,-69
+Germany ,DEU,2021,-70
+UK,GBR,2019,3.5
+UK,GBR,2020,-73
+UK,GBR,2021,-92
