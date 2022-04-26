@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style> /* set the CSS */
+    .flex-container {
+        display: flex;
+    }
+
+
+    .bar { fill: steelblue; }
+
+    .legend text {
+        font: 12px Arial;
+        fill: #000;
+    }
+
+    .parent {
+        /*border: 1px solid black;*/
+        margin: 1rem;
+        padding: 2rem 2rem;
+        text-align: center;
+    }
+    .child {
+        display: inline-block;
+        /*border: 1px solid red;*/
+        padding: 1rem 1rem;
+        vertical-align: middle;
+    }
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+
+    </style>
+    <title>A10: White Hat / Black Hat</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <script src="colorbrewer.min.js"></script>
+    <script src="https://colorbrewer2.org/export/colorbrewer.js"></script>
+    <header><h1>A10: White Hat / Black Hat</h1></header>
+</head>
+
+<!--<div class="flex-container">-->
+
+<!--        <div id="area1"></div>-->
+
+
+<!--        <div id="area2"></div>-->
+
+<!--</div>-->
+<div class='parent'>
+    <div class='child'><div id="area1"></div></div>
+    <div class='child'><div id="area2"></div></div>
+</div>
+<body>
+<ul>
+    <h1>Bad</h1>
+    <h3>&emsp;- Categorical Color Scale with quantitative data</h3>
+    <h3>&emsp; &emsp; - The two distinct color of green and blue makes it seem like the viz is trying to compare to different types of car</h3>
+    <h3>&emsp; &emsp; (The color represents an entirely new category/feature)</h3>
+    <h3>&emsp;- X-axis title above the x-axis</h3>
+    <h3>&emsp;- Y-axis range scaled incorrectly, last bar shoots out of graph</h3>
+    <h1>Good</h1>
+    <h3>&emsp;- Switch over to a single color sequential scale</h3>
+    <h3>&emsp;- X-axis title moved back under x-axis </h3>
+    <h3>&emsp;- Y-axis rescaled range so max quantity within data set is within range</h3>
+    <h3>&emsp; &emsp;- Although most of the bars seems insignificant in terms of height and color when compared to the last bar (Mclaren F1),</h3>
+    <h3>&emsp; &emsp; now all heights of the bar are proportional to each other in regard to their price</h3>
+
+</ul>
+
+    <script>
+
+    var canvasWidth = 1250;
+    var canvasHeight = 600;
+    var margin = 200;
+
+    var svg = d3.select("#area1").append("svg")
+        .attr("width",  canvasWidth)
+        .attr("height", canvasHeight)
+
+    var width = svg.attr("width") - margin;
+    var height = svg.attr("height") - margin;
+
+    svg.append("text")
+        .attr("transform", "translate(100, 0")
+        .attr("x", 85)
+        .attr("y", 50)
+        .attr("font-size", "24px")
+        .text("Cost of Hyper Cars in 2019 (BAD)")
+
+    var xScale = d3.scaleBand().range([0, width]).padding(0.4);
+    var yScale = d3.scaleLinear().range([height, 0]);
+    var colorScale = d3.scaleQuantize().range(colorbrewer.Accent[5]);
+    //var colorScale = d3.scaleSequential().interpolator(d3.interpolateBlues);
+
+    var container_g = svg.append("g")
+        .attr("transform",
+            "translate(" + 100 + ", " + 100 + ")");
+
+    d3.csv("car.csv").then(data => {
+
+        xScale.domain(data.map(function(d){
+            return d.car;
+        }));
+
+
+        yScale.domain([0, 10]);
+        colorScale.domain([0, 26]);
+        // Draw bars!
+        // Append rectangles for bar chart
+        svg.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            //.attr("class", "bar")
+            .attr("transform",
+                "translate(" + 100 + ", " + 100 + ")")
+            .attr("x", function(d) {
+                return xScale(d.car);
+            })
+            .attr("width", xScale.bandwidth())
+            .attr("y", function(d) {
+                return yScale(d.cost);
+            })
+            .attr('fill', d => colorScale(d.cost))
+            .attr("height", function(d) {
+                return height - yScale(d.cost);
+            });
+
+        //Display the X-axis
+        container_g.append("g")
+            .attr("transform", "translate(0, " + height + ")")
+            .call(d3.axisBottom(xScale))
+            .append("text")
+            .attr("font-size","13px")
+            .attr("y", height-550)
+            .attr("x", width-550)
+            .attr("stroke", "black")
+            .text("Car")
+
+        // Display the Y-axis
+        container_g.append("g")
+            .call(d3.axisLeft(yScale).tickFormat(function(d) {
+                return d ;
+            }).ticks(10))
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -5)
+            .attr("x", -250)
+            .attr("dy", "-5.1em")
+            .attr("stroke", "black")
+            .attr("font-size","13px")
+            .text("Cost in Millions")
+
+        let quantize = d3.scaleQuantize()
+            .domain([ 0, 26 ])
+
+            .range(colorbrewer.Accent[5]);
+
+        container_g.append("g")
+            .attr("class", "legendQuant")
+            .attr("transform", "translate(800,50)");
+
+        let legend = d3.legendColor()
+            .labelFormat(d3.format("d"))
+            //.useClass(true)
+            .title("Color Legend")
+            .titleWidth(100)
+            .scale(quantize);
+
+        container_g.select(".legendQuant")
+            .call(legend);
+
+    })
+
+    var svg2 = d3.select("#area1").append("svg")
+        .attr("width",  canvasWidth)
+        .attr("height", canvasHeight)
+
+    var width2 = svg2.attr("width") - margin;
+    var height2 = svg2.attr("height") - margin;
+
+    svg2.append("text")
+        .attr("transform", "translate(100, 0")
+        .attr("x", 85)
+        .attr("y", 50)
+        .attr("font-size", "24px")
+        .text("Cost of Hyper Cars in 2019 (GOOD)")
+
+    var xScale2 = d3.scaleBand().range([0, width]).padding(0.4);
+    var yScale2 = d3.scaleLinear().range([height, 0]);
+    var colorScale2 = d3.scaleQuantize().range(colorbrewer.Blues[5]);
+    //var colorScale = d3.scaleSequential().interpolator(d3.interpolateBlues);
+
+    var container_g2 = svg2.append("g")
+        .attr("transform",
+            "translate(" + 100 + ", " + 100 + ")");
+
+    d3.csv("car.csv").then(data => {
+
+        xScale2.domain(data.map(function(d){
+            return d.car;
+        }));
+
+
+        yScale2.domain([0, 26]);
+        colorScale2.domain([0, 26]);
+        // Draw bars!
+        // Append rectangles for bar chart
+        svg2.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            //.attr("class", "bar")
+            .attr("transform",
+                "translate(" + 100 + ", " + 100 + ")")
+            .attr("x", function(d) {
+                return xScale2(d.car);
+            })
+            .attr("width", xScale2.bandwidth())
+            .attr("y", function(d) {
+                return yScale2(d.cost);
+            })
+            .attr('fill', d => colorScale2(d.cost))
+            .attr("height", function(d) {
+                return height2 - yScale2(d.cost);
+            });
+
+        //Display the X-axis
+        container_g2.append("g")
+            .attr("transform", "translate(0, " + height2 + ")")
+            .call(d3.axisBottom(xScale2))
+            .append("text")
+            .attr("font-size","13px")
+            .attr("y", height2-350)
+            .attr("x", width2-525)
+            .attr("stroke", "black")
+            .text("Car")
+
+        // Display the Y-axis
+        container_g2.append("g")
+            .call(d3.axisLeft(yScale2).tickFormat(function(d) {
+                return d ;
+            }).ticks(10))
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -5)
+            .attr("x", -250)
+            .attr("dy", "-5.1em")
+            .attr("stroke", "black")
+            .attr("font-size","13px")
+            .text("Cost in Millions")
+
+        let quantize = d3.scaleQuantize()
+            .domain([ 0, 26 ])
+
+            .range(colorbrewer.Blues[5]);
+
+        container_g2.append("g")
+            .attr("class", "legendQuant")
+            .attr("transform", "translate(800,50)");
+
+        let legend = d3.legendColor()
+            .labelFormat(d3.format("d"))
+            //.useClass(true)
+            .title("Color Legend")
+            .titleWidth(100)
+            .scale(quantize);
+
+        container_g2.select(".legendQuant")
+            .call(legend);
+
+    })
+
+</script>
+</body>
+</html>
