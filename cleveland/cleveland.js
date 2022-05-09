@@ -5,12 +5,16 @@
     height = 700 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
-    const svg = d3.select("svg")
+    const cleve = d3.select(".cleve")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+    // const tooltip = d3.select("svg").append("div")
+    //     .attr("class", "tooltip")
+    //     .style("opacity", 0);
 
     // Parse the Data
     d3.csv("top10_tourist_country.csv").then( function(data) {
@@ -21,7 +25,7 @@
     const x = d3.scaleLinear()
     .domain([0, 90])
     .range([ 0, width]);
-    svg.append("g")
+    cleve.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x))
     .append("text")
@@ -29,7 +33,7 @@
     .attr("y", 50)
     .attr("x", width /2)
     .attr("stroke", "black")
-    .style("fill", "black")
+        .attr("fill", "black")
     .text("International Arrivals (Millions)")
 
     // Y axis
@@ -37,12 +41,49 @@
     .range([ 0, height ])
     .domain(data.map(function(d) { return d.group; }))
     .padding(1);
-    svg.append("g")
+    cleve.append("g")
     .call(d3.axisLeft(y))
 
+    const tooltip = d3.select(".cleve")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
 
-    // Lines
-    svg.selectAll("myline")
+
+        // A function that change this tooltip when the user hover a point.
+        // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+        const mouseover = function(event, d) {
+            tooltip
+                .style("opacity", 1)
+                .html(`${d.value2} Million(s) International Tourists <br> visted ${d.group} in 2020`)
+                .style("left", (event.x)/2 + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+                .style("top", (event.y)/2 + "px")
+        }
+
+        // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+        const mouseleave = function(event,d) {
+            tooltip
+                .transition()
+                .duration(200)
+                .style("opacity", 0)
+            gdp1
+                .style("opacity", 0)
+            gdp2
+                .style("opacity", 0)
+            gdptext19
+                .style("opacity", 0)
+            gdptext20
+                .style("opacity", 0)
+        }
+
+
+        // Lines
+    cleve.selectAll("myline")
     .data(data)
     .join("line")
     .attr("x1", function(d) { return x(d.value1); })
@@ -55,69 +96,142 @@
 
 
         // Circles of variable 1
-    svg.selectAll("mycircle")
+    cleve.selectAll("mycircle")
     .data(data)
     .join("circle")
     .attr("cx", function(d) { return x(d.value1); })
     .attr("cy", function(d) { return y(d.group); })
     .attr("r", "6")
     .style("fill", "#69b3a2")
-
-        var Tooltip = d3.select("svg")
-            .append("svg")
-            .style("opacity", 0)
-            .attr("class", ".tooltip")
-            .style("background-color", "white")
-            .style("border", "solid")
-            .style("border-width", "50px")
-            .style("border-radius", "50px")
-            .style("padding", "5px")
-            .style("font-size", "16px")
-
-
-        // Three function that change the tooltip when user hover / move / leave a cell
-        const mouseover = function (d) {
-            Tooltip
+        .on("mouseover", function(event, d) {
+            tooltip
                 .style("opacity", 1)
-            d3.select(this)
-                .style("fill", "yellow")
-            //.style("opacity", 1)
+                .html(`${d.value1} Million(s) International Tourists <br> visted ${d.group} in 2019`)
+                .style("left", (event.x)/2 + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+                .style("top", (event.y)/2 + "px")
+            gdp1
+                .style("opacity", 0.5)
+            gdp2
+                .style("opacity", 0.5)
+            gdptext20
+                .style("opacity", .7)
+                .html(`'20 Tourism GDP: ${d.gdp20}%`);
+
+            gdptext19
+                .style("opacity", 0.7)
+                .html(`'19 Tourism GDP: ${d.gdp19}%`);
+
+        } )
+        .on("mouseleave", mouseleave )
 
 
-        };
-        const mousemove = (event) => {
-            const pos = d3.pointer(event);
 
-            Tooltip
-                .html("The value of this cell is:")
-                .style("left", (pos[0] + 70) + "px")
-                .style("top", (pos[1]) + "px")
-            // console.log(pos[0]);
-            // console.log(pos[1]);
-        };
-        const mouseleave = function (d) {
-            Tooltip
-                .style("opacity", 0)
-            d3.select(this)
-                .style("fill", "#4C4082")
-        };
+
+
+
 
 
     // Circles of variable 2
-    svg.selectAll("mycircle")
+    cleve.selectAll("mycircle")
     .data(data)
     .join("circle")
     .attr("cx", function(d) { return x(d.value2); })
     .attr("cy", function(d) { return y(d.group); })
     .attr("r", "6")
     .style("fill", "#4C4082")
-        .on("mouseover", mouseover)
-        .on("mousemove", mousemove)
-        .on("mouseleave", mouseleave)
-        // .append("title")
-        //
-        // .text( (d) => "Value in 2020 is " + d.value2)
+        .on("mouseover", function(event, d) {
+            tooltip
+                .style("opacity", 1)
+                .html(`${d.value2} Million(s) International Tourists <br> visted ${d.group} in 2020`)
+                .style("left", (event.x)/2 + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+                .style("top", (event.y)/2 + "px");
+            gdp1
+                .style("opacity", 0.5)
+            gdp2
+                .style("opacity", 0.5)
+            gdptext20
+                .style("opacity", 0.8)
+                .html(`'20 Tourism GDP: ${d.gdp20}%`);
 
+            gdptext19
+                .style("opacity", 0.8)
+                .html(`'19 Tourism GDP: ${d.gdp19}%`);
+
+        } )
+        .on("mouseleave", mouseleave )
+
+
+
+
+    cleve.append("text")
+    .attr("transform", "translate(100, 0)")
+    .attr("x", -125)
+    .attr("y", -10)
+    .attr("font-size", "18px")
+        .style('font-family','arial')
+    .text("Top 10 Tourist Countries by International Arrivals 2019 v 2020")
+
+        const ordinal = d3.scaleOrdinal()
+            .domain(["2019", "2020"])
+            .range(["#69b3a2", "#4C4082"]);
+
+
+        cleve.append("g")
+            .attr("class", "legendOrdinal")
+            .attr("transform", "translate(425,150)");
+
+        const legendOrdinal = d3.legendColor()
+            .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
+            .shapePadding(10)
+            //use cellFilter to hide the "e" cell
+            .cellFilter(function (d) {
+                return d.label !== "e"
+            })
+            .scale(ordinal);
+
+        cleve.select(".legendOrdinal")
+            .call(legendOrdinal);
+
+
+        const gdp1 = cleve
+            .append("rect")
+            .attr("x", 275)
+            .attr("y", 350)
+            .attr("width", "295")
+            .attr("height", "75")
+            .attr("fill", "#69b3a2")
+            .style("opacity", 0);
+
+        const gdp2 = cleve
+            .append("rect")
+            .attr("x", 275)
+            .attr("y", 450)
+            .attr("width", "295")
+            .attr("height", "75")
+            .attr("fill", "#4C4082")
+            .style("opacity", 0);
+
+        const gdptext19 = cleve
+            .append("text")
+            .style("fill", "black")
+            .style("font-size", "17.5px")
+            .attr("x", 280)
+            .attr("y", 400)
+            .style('font-family','arial')
+            .attr("stroke", "black")
+            .style("opacity", 0)
+            .text("'19 Tourism GDP: ")
+
+        const gdptext20 = cleve
+            .append("text")
+            .style("fill", "black")
+            .style("font-size", "19px")
+            .attr("x", 280)
+            .attr("y", 495)
+            .style('font-family','arial')
+            .attr("stroke", "black")
+            .style("opacity", 0)
+            .text("'20 Tourism GDP: ")
         //TODO
     //Add Hover over name will bring up small popup window that tells value of both circle
     //as well as Percent/actual num difference of 2020 to 2019

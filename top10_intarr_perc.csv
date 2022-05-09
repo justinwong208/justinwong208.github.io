@@ -1,0 +1,261 @@
+Country,Code,Month,perc
+France ,FRA,12-2019,
+France ,FRA,01-2020,
+France ,FRA,02-2020,
+France ,FRA,03-2020,
+France ,FRA,04-2020,
+France ,FRA,05-2020,
+France ,FRA,06-2020,
+France ,FRA,07-2020,-56
+France ,FRA,08-2020,-57
+France ,FRA,09-2020,-79
+France ,FRA,10-2020,-83
+France ,FRA,11-2020,-83
+France ,FRA,12-2020,-83
+France ,FRA,01-2021,-83
+France ,FRA,02-2021,-83
+France ,FRA,03-2021,-83
+France ,FRA,04-2021,-83
+France ,FRA,05-2021,-89
+France ,FRA,06-2021,-89
+France ,FRA,07-2021,-48
+France ,FRA,08-2021,-44
+France ,FRA,09-2021,-51
+France ,FRA,10-2021,-51
+France ,FRA,11-2021,-51
+France ,FRA,12-2021,-51
+France ,FRA,01-2022,-51
+Spain ,ESP,12-2019,0.8
+Spain ,ESP,01-2020,-1
+Spain ,ESP,02-2020,1
+Spain ,ESP,03-2020,-65
+Spain ,ESP,04-2020,-100
+Spain ,ESP,05-2020,-100
+Spain ,ESP,06-2020,-98
+Spain ,ESP,07-2020,-75
+Spain ,ESP,08-2020,-76
+Spain ,ESP,09-2020,-87
+Spain ,ESP,10-2020,-87
+Spain ,ESP,11-2020,-90
+Spain ,ESP,12-2020,-85
+Spain ,ESP,01-2021,-90
+Spain ,ESP,02-2021,-93
+Spain ,ESP,03-2021,-91
+Spain ,ESP,04-2021,-91
+Spain ,ESP,05-2021,-83
+Spain ,ESP,06-2021,-75
+Spain ,ESP,07-2021,-55
+Spain ,ESP,08-2021,-49
+Spain ,ESP,09-2021,-47
+Spain ,ESP,10-2021,-32
+Spain ,ESP,11-2021,-28
+Spain ,ESP,12-2021,-32
+Spain ,ESP,01-2022,-41
+United States,USA,12-2019,-0.4
+United States,USA,01-2020,-1
+United States,USA,02-2020,-2
+United States,USA,03-2020,-50
+United States,USA,04-2020,-96
+United States,USA,05-2020,-96
+United States,USA,06-2020,-95
+United States,USA,07-2020,-93
+United States,USA,08-2020,-91
+United States,USA,09-2020,-91
+United States,USA,10-2020,-89
+United States,USA,11-2020,-85
+United States,USA,12-2020,-83
+United States,USA,01-2021,-82
+United States,USA,02-2021,-86
+United States,USA,03-2021,-83
+United States,USA,04-2021,-81
+United States,USA,05-2021,-74
+United States,USA,06-2021,-73
+United States,USA,07-2021,-74
+United States,USA,08-2021,-73
+United States,USA,09-2021,-72
+United States,USA,10-2021,-69
+United States,USA,11-2021,-53
+United States,USA,12-2021,-50
+United States,USA,01-2022,-50
+China,CHN,12-2019,4.5
+China,CHN,1-2020,-18
+China,CHN,2-2020,-92
+China,CHN,3-2020,-94
+China,CHN,4-2020,-99
+China,CHN,5-2020,-98
+China,CHN,6-2020,-97
+China,CHN,7-2020,-94
+China,CHN,8-2020,-92
+China,CHN,9-2020,-91
+China,CHN,10-2020,-92
+China,CHN,11-2020,-91
+China,CHN,12-2020,-91
+China,CHN,1-2021,-90
+China,CHN,2-2021,-90
+China,CHN,3-2021,-90
+China,CHN,4-2021,-90
+China,CHN,5-2021,-90
+China,CHN,6-2021,-90
+China,CHN,7-2021,-90
+China,CHN,8-2021,-90
+China,CHN,9-2021,-90
+China,CHN,10-2021,-90
+China,CHN,11-2021,-90
+China,CHN,12-2021,-90
+China,CHN,1-2022,-90
+Italy ,ITA,12-2019,11.9
+Italy ,ITA,01-2020,4
+Italy ,ITA,2-2020,-7
+Italy ,ITA,03-2020,-84
+Italy ,ITA,4-2020,-91
+Italy ,ITA,05-2020,-84
+Italy ,ITA,6-2020,-72
+Italy ,ITA,07-2020,-57
+Italy ,ITA,8-2020,-45
+Italy ,ITA,09-2020,-47
+Italy ,ITA,10-2020,-65
+Italy ,ITA,11-2020,-80
+Italy ,ITA,12-2020,-81
+Italy ,ITA,01-2021,-79
+Italy ,ITA,2-2021,-77
+Italy ,ITA,03-2021,-84
+Italy ,ITA,4-2021,-88
+Italy ,ITA,05-2021,-83
+Italy ,ITA,6-2021,-72
+Italy ,ITA,07-2021,-63
+Italy ,ITA,8-2021,-37
+Italy ,ITA,09-2021,-32
+Italy ,ITA,10-2021,-35
+Italy ,ITA,11-2021,-37
+Italy ,ITA,12-2021,-49
+Italy ,ITA,01-2022,-19
+Turkey ,TUR,12-2019,9
+Turkey ,TUR,01-2020,16
+Turkey ,TUR,2-2020,4
+Turkey ,TUR,03-2020,-68
+Turkey ,TUR,4-2020,-99
+Turkey ,TUR,05-2020,-99
+Turkey ,TUR,6-2020,-96
+Turkey ,TUR,07-2020,-86
+Turkey ,TUR,8-2020,-71
+Turkey ,TUR,09-2020,-59
+Turkey ,TUR,10-2020,-59
+Turkey ,TUR,11-2020,-61
+Turkey ,TUR,12-2020,-67
+Turkey ,TUR,01-2021,-67
+Turkey ,TUR,2-2021,-68
+Turkey ,TUR,03-2021,-59
+Turkey ,TUR,4-2021,-76
+Turkey ,TUR,05-2021,-76
+Turkey ,TUR,6-2021,-61
+Turkey ,TUR,07-2021,-33
+Turkey ,TUR,8-2021,-36
+Turkey ,TUR,09-2021,-35
+Turkey ,TUR,10-2021,-18
+Turkey ,TUR,11-2021,-19
+Turkey ,TUR,12-2021,-11
+Turkey ,TUR,01-2022,-16
+Mexico,MEX,12-2019,4.4
+Mexico,MEX,01-2020,9
+Mexico,MEX,2-2020,11
+Mexico,MEX,03-2020,-35
+Mexico,MEX,4-2020,-79
+Mexico,MEX,05-2020,-74
+Mexico,MEX,6-2020,-74
+Mexico,MEX,07-2020,-67
+Mexico,MEX,8-2020,-62
+Mexico,MEX,09-2020,-40
+Mexico,MEX,10-2020,-44
+Mexico,MEX,11-2020,-46
+Mexico,MEX,12-2020,-44
+Mexico,MEX,01-2021,-45
+Mexico,MEX,2-2021,-53
+Mexico,MEX,03-2021,-46
+Mexico,MEX,4-2021,-36
+Mexico,MEX,05-2021,-23
+Mexico,MEX,6-2021,-20
+Mexico,MEX,07-2021,-19
+Mexico,MEX,8-2021,-22
+Mexico,MEX,09-2021,-19
+Mexico,MEX,10-2021,-23
+Mexico,MEX,11-2021,-25
+Mexico,MEX,12-2021,-22
+Mexico,MEX,01-2022,-24
+Thailand,THA,12-2019,1.8
+Thailand,THA,01-2020,2
+Thailand,THA,2-2020,-43
+Thailand,THA,03-2020,-76
+Thailand,THA,4-2020,-100
+Thailand,THA,05-2020,-100
+Thailand,THA,6-2020,-100
+Thailand,THA,07-2020,-100
+Thailand,THA,8-2020,-100
+Thailand,THA,09-2020,-100
+Thailand,THA,10-2020,-100
+Thailand,THA,11-2020,-100
+Thailand,THA,12-2020,-100
+Thailand,THA,01-2021,-100
+Thailand,THA,2-2021,-100
+Thailand,THA,03-2021,-100
+Thailand,THA,4-2021,-100
+Thailand,THA,05-2021,-100
+Thailand,THA,6-2021,-100
+Thailand,THA,07-2021,-100
+Thailand,THA,8-2021,-100
+Thailand,THA,09-2021,-100
+Thailand,THA,10-2021,-99
+Thailand,THA,11-2021,-97
+Thailand,THA,12-2021,-94
+Thailand,THA,01-2022,-96
+Germany ,DEU,12-2019,1.9
+Germany ,DEU,01-2020,2
+Germany ,DEU,2-2020,1
+Germany ,DEU,03-2020,-71
+Germany ,DEU,04-2020,-97
+Germany ,DEU,05-2020,-95
+Germany ,DEU,06-2020,-83
+Germany ,DEU,07-2020,-62
+Germany ,DEU,8-2020,-60
+Germany ,DEU,09-2020,-63
+Germany ,DEU,10-2020,-77
+Germany ,DEU,11-2020,-92
+Germany ,DEU,12-2020,-94
+Germany ,DEU,01-2021,-92
+Germany ,DEU,2-2021,-92
+Germany ,DEU,03-2021,-91
+Germany ,DEU,4-2021,-96
+Germany ,DEU,05-2021,-92
+Germany ,DEU,6-2021,-82
+Germany ,DEU,07-2021,-62
+Germany ,DEU,8-2021,-54
+Germany ,DEU,09-2021,-51
+Germany ,DEU,10-2021,-44
+Germany ,DEU,11-2021,-50
+Germany ,DEU,12-2021,-66
+Germany ,DEU,01-2022,
+UK,GBR,12-2019,3.5
+UK,GBR,01-2020,7
+UK,GBR,2-2020,6
+UK,GBR,03-2020,-54
+UK,GBR,4-2020,-97
+UK,GBR,05-2020,-96
+UK,GBR,6-2020,-95
+UK,GBR,07-2020,-80
+UK,GBR,8-2020,-80
+UK,GBR,09-2020,-80
+UK,GBR,10-2020,-87
+UK,GBR,11-2020,-87
+UK,GBR,12-2020,-87
+UK,GBR,01-2021,-92
+UK,GBR,2-2021,-92
+UK,GBR,03-2021,-93
+UK,GBR,4-2021,-94
+UK,GBR,05-2021,-93
+UK,GBR,6-2021,-92
+UK,GBR,07-2021,-92
+UK,GBR,8-2021,-92
+UK,GBR,09-2021,-92
+UK,GBR,10-2021,-92
+UK,GBR,11-2021,-92
+UK,GBR,12-2021,-92
+UK,GBR,01-2022,-92

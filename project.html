@@ -11,12 +11,37 @@
 	<head>
 		<title>Stellar by HTML5 UP</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<style>
+			div.tooltip {
+		position: absolute;
+		padding: 7px;
+		font-size: 0.8em;
+		pointer-events: none;
+		background: #fff;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+	  }
+
+
+  .background {
+    fill: transparent;
+  }
+		</style>
 		<script src="https://d3js.org/d3.v6.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+		<!-- <script src="https://d3js.org/d3.v4.js"></script> -->
+		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+		<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+	
+	
+	
+
 	</head>
+	
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -52,7 +77,7 @@
 											<h2>Plan to travel anywhere during the summer?</h2>
 										</header>
 										<h2> Said no one in 2020. </h2>
-										<h3>Okay I'm pretty sure cancelling a trip to Japan is the least of worries
+										<h3>Okay I'm pretty sure cancelling a trip to Paris is the least of worries
 											when the COVID-19 virus began to spread around the world. 
 											Many dealt with problems such as shutting down businesses, isolated from family/friends, and loss of loved ones. 
 											However, that trip cancellation like many others meant a huge decline in business for the people in the tourist 
@@ -82,8 +107,9 @@
 									the number of infected and Covid related deaths kept coming back in waves, at least in California, 
 									pushing back the full reopening of San Francisco to June 2021.
 									</h3>-->
-								<svg width="800" height="800" id="svg1"></svg>
-								<script src="choro/choropleth.js"></script>
+								<!-- <svg id="choro" width="800" height="800" ></svg>
+								 <script src="choro/choropleth.js"></script>
+								 -->
 								<h5>The choropleth only shows data for the top ten countries based on their incoming international arrivals. 
 									Days with bans on high-risk regions, and full border closure are also included.</h5>
 								<ul class="features">
@@ -105,25 +131,18 @@
 								<header class="major">
 									<h2>Who's the most impacted?</h2>
 								</header>
-								<h3>Besides a potentially fatal virus, quaranting upon arrival was a huge factor in the decline of international travel. 
-									At the peak of COVID infections and deaths and even up to the end of 2021, quarantining was around 5 to 14 days long,
-									 and travelers weren't willing to spend a majority or their entirety of their vacation time in a hotel room. </h3>
+								<h3>Besides border closure, quaranting upon arrival was a huge factor in the decline of international travel. 
+									At the peak of COVID infections and even up to the end of 2021, quarantining was around 5 to 14 days long,
+									 and travelers weren't willing to spend the entirety of their vacation time in a hotel room.  </h3>
 
-								<h3>Who would be the most impacted by the huge drop in tourists?</h3>
+								<h3>Amongst the most visited countries, which ones has been the most effected by the decline in the tourism sector?</h3>
+								<!-- <svg width="600" height="700" id="cleve"></svg> -->
 
-								<h2>Technical Issues displaying Cleveland Dot Plot</h2>
+								<!-- <div class="cleve"></div>
+								<script src="cleveland/cleveland.js"></script> -->
 								
-								<p>
-									<ul>
-										<!--<l><a href="cleveland/index.html" class="button primary">Cleveland</a></l>-->
-										<l><a href="https://vizhub.com/justinwong208/873d4a2b8e1b4ef1b1329bdd7d809852?edit=files&file=index.html" class="button primary">Cleveland</a></l>
-
-									</ul>
-								</p>
-								<!--<svg width="600" height="700" id="svg2"></svg>
-								<script src="cleveland/cleveland.js"></script>-->
 								
-								<!--<p class="content">DESCRIBE MY DATA SET</p>-->
+								<!-- <p class="content">DESCRIBE MY DATA SET</p> -->
 								<footer class="major">
 									
 								</footer>
@@ -132,27 +151,37 @@
 <!-- Line Chart -->
 							<section id="finalP" class="main special">
 								<header class="major">
-									<h2>Line Chart</h2>
+									<h2>Dry Spell</h2>
 									<p>
 									<!-- -Include how does the decline in tourist has effected the country
 									_Include how much money was lost overall (us and world) _
 									_Include the overall world percentage in loss of tourist arrivals  -->
 									</p>
 									<h3>At the end of 2020, global international arrivals dropped 73%. </h3>
+									<h3>Countries that enforced measures early on like Turkey recovered quicker in terms of tourism.
+										Suprisingly, Mexico, who refused to close their borders all throughout the pandemic, 
+										was doing much better than countries like the US and UK. On the other hand, Thailand, one of the most dependent on 
+										tourism, is seeing a rather slow rise even after reopening majority of the country in late 2021.
+									</h3>
 								</header>
-								<h3>With the international halt on tourism worldwide, who were the ones that were hit the hardest?</h3>
-								<h2>Technical Issues displaying Line Chart SVG</h2>
+								<body>
+
+								<!-- <h2>Technical Issues displaying Line Chart SVG</h2>
 								
 								<p>
 									<ul>
 										<l><a href="https://vizhub.com/justinwong208/34bd721281ac470ea86a35994fbf0682?edit" class="button primary">Line Chart</a></l>
 
 									</ul>
-								</p>
-							<!--<svg width="1000" height="700" id="svg3"></svg>
-								<script src="lineChart/linechart.js"></script>-->
+								</p> -->
+							
+
+								<div id="smallmult"></div>
+								<script src="multiple/multiple.js"></script>
+								</body>
 								<footer class="major">
 									<ul class="actions special">
+										<h5>The % change displayed on the line charts are being compared the average annual international arrivals in 2019</h5>
 									</ul>
 								</footer>
 							</section>
@@ -161,14 +190,19 @@
 						<section id="links" class="main special">
 							<header class="major">
 								<!-- <h2>Final Thoughts</h2> -->
-								
+								<h2>Recovery</h2>
+								<h3>Global tourism has risen 4% in 2021, but still sits 72% lower than 2019 in terms of international arrivals. 
+									Asian countries are seeing a slower comeback compared to the rest of the world as they just begin to open borders and 
+									implement inital saftey procedures to travelers visiting. According to the World Travel and Tourism Council, the tourism industry should reach back to 
+									pre-pandemic numbers by 2023.
+								</h3>
 								
 							</header>
-							<p>
+							<!-- <p>
 								<ul>
 									<l><a href="AlphaReport.pdf" class="button primary">Alpha</a></l>
 								</ul>
-							</p>
+							</p> -->
 							
 							<footer class="major">
 								<ul class="actions special">
@@ -190,6 +224,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			
 	</body>
 </html>
