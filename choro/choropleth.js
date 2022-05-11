@@ -1,7 +1,7 @@
 // initial setup
 const svg = d3.select("#choro"),
-width = svg.attr("width"),
-height = svg.attr("height"),
+width = +svg.attr("width"),
+height = +svg.attr("height"),
 path = d3.geoPath(),
 data = d3.map(),
 worldmap = "update.geo.json",
@@ -42,7 +42,8 @@ const colorScale = d3.scaleThreshold()
 const tooltip = d3.select("#choro").append("div")
 .attr("class", "tooltip")
 .style("opacity", 0);
-let onearr;
+
+
 // Load external data and boot
 d3.queue()
 .defer(d3.json, worldmap)
