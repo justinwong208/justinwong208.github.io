@@ -1,6 +1,6 @@
 
     // set the dimensions and margins of the graph
-    const margin = {top: 80, right: 60, bottom: 60, left: 120},
+    const margin = {top: 80, right: 60, bottom: 60, left: 60},
     width = 600 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
@@ -122,8 +122,8 @@ console.log("we got through");
                 .style("opacity", 1)
                 // .style("left", (event.x)/2 + "px")
                 // .style("top", (event.y)/2 + "px")
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY) + "px")
+                .style("left", (d3.event.pageX) - 250 + "px")
+                .style("top", (d3.event.pageY) - 75 + "px")
                 .text(d.value1 + " Million(s) International Tourists visited " + d.group + " in 2019")
             gdp1
                 .transition()
@@ -137,13 +137,13 @@ console.log("we got through");
                 .transition()
                 .duration(200)
                 .style("opacity", 0.8)
-                .text("'20 Tourism GDP:" +  d.gdp20 + "%");
+                .text("'20 Tourism GDP: " +  d.gdp20 + "%");
 
             gdptext19
                 .transition()
                 .duration(200)
                 .style("opacity", 0.8)
-                .text("'19 Tourism GDP:" +  d.gdp19 + "%");
+                .text("'19 Tourism GDP: " +  d.gdp19 + "%");
 
         } )
         .on("mouseleave", mouseleave )
@@ -168,8 +168,8 @@ console.log("we got through");
         .on("mouseover", function(d) {
             tooltip
                 .style("opacity", 1)
-                .style("left", (d3.event.pageX ) + "px")
-                .style("top", (d3.event.pageY ) + "px")
+                .style("left", (d3.event.pageX ) -250 + "px")
+                .style("top", (d3.event.pageY ) - 75+ "px")
                 .text(d.value2 + " Million(s) International Tourists visited " + d.group + " in 2019")
 
             gdp1
@@ -184,13 +184,13 @@ console.log("we got through");
                 .transition()
                 .duration(200)
                 .style("opacity", 0.8)
-                .text("'20 Tourism GDP:" +  d.gdp20 + "%");
+                .text("'20 Tourism GDP: " +  d.gdp20 + "%");
 
             gdptext19
                 .transition()
                 .duration(200)
                 .style("opacity", 0.8)
-                .text("'19 Tourism GDP:" +  d.gdp19 + "%");
+                .text("'19 Tourism GDP: " +  d.gdp19 + "%");
 
         } )
         .on("mouseleave", mouseleave )
@@ -213,7 +213,7 @@ console.log("we got through");
 
         cleve.append("g")
             .attr("class", "legendOrdinal")
-            .attr("transform", "translate(425,150)");
+            .attr("transform", "translate(450,150)");
 
         const legendOrdinal = d3.legendColor()
             .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
@@ -230,7 +230,7 @@ console.log("we got through");
 
         const gdp1 = cleve
             .append("rect")
-            .attr("x", 225)
+            .attr("x", 245)
             .attr("y", 370)
             .attr("width", "215")
             .attr("height", "50")
@@ -240,7 +240,7 @@ console.log("we got through");
 
         const gdp2 = cleve
             .append("rect")
-            .attr("x", 225)
+            .attr("x", 245)
             .attr("y", 430)
             .attr("width", "215")
             .attr("height", "50")
@@ -252,7 +252,7 @@ console.log("we got through");
             .append("text")
             .style("fill", "black")
             .style("font-size", "18px")
-            .attr("x", 230)
+            .attr("x", 250)
             .attr("y", 400)
             .style('font-family','arial')
             .attr("stroke", "black")
@@ -263,7 +263,7 @@ console.log("we got through");
             .append("text")
             .style("fill", "black")
             .style("font-size", "19px")
-            .attr("x", 230)
+            .attr("x", 250)
             .attr("y", 460)
             .style('font-family','arial')
             .attr("stroke", "black")

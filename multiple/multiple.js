@@ -1,6 +1,6 @@
 
     // set the dimensions and margins of the graph
-    const margin = {top: 30, right: 0, bottom: 30, left: 50},
+    const margin = {top: 30, right: 40, bottom: 30, left: 50},
     width = 450 - margin.left - margin.right,
     height = 210 - margin.top - margin.bottom;
 
@@ -70,10 +70,10 @@
         svg.append("g")
         .call(d3.axisLeft(y).ticks(5))
             .append("text")
-            .attr("font-size","8.5px")
+            .attr("font-size","11px")
             .attr("transform", "rotate(-90)")
             .attr("y", -35)
-            .attr("x", -30)
+            .attr("x", -15)
             .attr("stroke", "black")
             .style("opacity", 0.8)
 
@@ -91,7 +91,8 @@
     svg
     .append("path")
     .attr("fill", "none")
-    .attr("stroke", function(d){ return color(d.key) })
+    .attr("stroke", "#ff6061")
+    //.attr("stroke", function(d){ return color(d.key) })
     .attr("stroke-width", 1.9)
     .attr("d", function(d){
     return d3.line()
