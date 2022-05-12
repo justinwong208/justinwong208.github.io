@@ -42,7 +42,7 @@
             //         .style("opacity", 0);
             // }
             // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
-    const svg = d3.select("#smallmult")
+    const multi = d3.select("#smallmult")
     .selectAll("uniqueChart")
     .data(sumstat)
     .enter()
@@ -57,7 +57,7 @@
     const x = d3.scaleTime()
     .domain(d3.extent(data, function(d) { return d.date; }))
     .range([ 0, width ]);
-    svg
+    multi
     .append("g")
         .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).ticks(6))
@@ -67,7 +67,7 @@
     const y = d3.scaleLinear()
         .domain([d3.min(data, function(d) { return +d.perc; }), d3.max(data, function(d) { return +d.perc; })])
         .range([ height, 0 ]);
-        svg.append("g")
+        multi.append("g")
         .call(d3.axisLeft(y).ticks(5))
             .append("text")
             .attr("font-size","11px")
@@ -88,7 +88,7 @@
 
 
             // Draw the line
-    svg
+    multi
     .append("path")
     .attr("fill", "none")
     .attr("stroke", "#ff6061")
@@ -102,7 +102,7 @@
 });
 
     // Add titles
-    svg
+    multi
     .append("text")
     .attr("text-anchor", "start")
     .attr("y", -5)

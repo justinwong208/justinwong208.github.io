@@ -1,3 +1,13 @@
+// // create svg element:
+// var svg = d3.select("#cleve").append("svg").attr("width", 200).attr("height", 200)
+
+// // Add the path using this helper function
+// svg.append('circle')
+//   .attr('cx', 100)
+//   .attr('cy', 100)
+//   .attr('r', 50)
+//   .attr('stroke', 'black')
+//   .attr('fill', '#69a3b2');
 
     // set the dimensions and margins of the graph
     const margin = {top: 80, right: 60, bottom: 60, left: 60},
@@ -5,19 +15,21 @@
     height = 700 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
-    const cleve = d3.select(".cleve")
+    const cleve = d3.select("#cleve")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+    // .translate([margin.left, margin.top]);
+    ;
 
     // const tooltip = d3.select("svg").append("div")
     //     .attr("class", "tooltip")
     //     .style("opacity", 0);
 
     // Parse the Data
-    d3.csv("top10_tourist_country.csv",  function(data) {
+    d3.csv("cleveland/top10_tourist_country.csv",  function(data) {
 
 console.log("we got through");
 
@@ -44,7 +56,7 @@ console.log("we got through");
     cleve.append("g")
     .call(d3.axisLeft(y))
 
-    const tooltip = d3.select(".cleve")
+    const tooltip = d3.select("#cleve")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")

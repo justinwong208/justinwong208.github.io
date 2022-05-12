@@ -1,18 +1,18 @@
 // initial setup
-const svg = d3.select("#choro"),
-width = +svg.attr("width"),
-height = +svg.attr("height"),
+const choro = d3.select("#choro"),
+width = +choro.attr("width"),
+height = +choro.attr("height"),
 path = d3.geoPath(),
 data = d3.map(),
 worldmap = "update.geo.json",
 worldpopulation = "num_of_bans.csv";
 
-svg.append("rect")
+choro.append("rect")
 .attr("y", 100)
 .attr("width", "100%")
 .attr("height", "500")
 .attr("fill", "#89CFF0");
-let centered, world;
+
 //
 // // style of geographic projection and scaling
 // const projection = d3.geoRobinson()
@@ -26,8 +26,7 @@ const projection = d3.geoMercator()
 .scale(100)
 .center([0,20])
 .translate([width / 2, height / 2]);
-// let data = new Map()
-// Define color scale
+
 const colorScale = d3.scaleThreshold()
 .domain([125,250,375,500,625,750,875,1000])
 ///CHANGE THIS FROM d3.schemeYlOrRd[5] to actual hexcode from the website
@@ -39,7 +38,8 @@ const colorScale = d3.scaleThreshold()
 // Lo
 
 // add tooltip
-const tooltip = d3.select("#choro").append("div")
+const tooltip = d3.select("body").append("div")
+//const tooltip = d3.select("#choro").append("div")
 .attr("class", "tooltip")
 .style("opacity", 0);
 
@@ -55,11 +55,7 @@ d.one = +d.one;
 data.set(d.code, +d.pop);
 return d;
 }
-// Add clickable background
-svg.append("rect")
-.attr("class", "background")
-.attr("width", width)
-.attr("height", height)
+
 
 
 // ----------------------------
@@ -75,26 +71,31 @@ let mouseOver = function(d) {
 
 d3.selectAll(".Country")
     .transition()
-    .duration(200)
-    .style("opacity", 1.0)
+    .duration(100)
+    .style("opacity", 0.5)
+    // .attr("fill", "grey")
     .style("stroke", "white");
 d3.select(this)
     .transition()
-    .duration(200)
+    .duration(100)
     .style("opacity", 1)
     .style("stroke", "black");
-tooltip.style("left", (d3.event.pageX + 15) + "px")
-    .style("top", (d3.event.pageY - 28) + "px")
-    .transition().duration(400)
-    .style("opacity", 1)
-    .text(d.properties.name + ": " + d.total + " Days" )
+    var text;
 
-    console.log("reaching here?" + d.properties.name + d.total)
+    if(d.total > 0){
+      text = d.properties.name + ": " + d.total + " Days";
+    }else{
+      text = d.properties.name;
+    }
 
+    tooltip.style("left", (d3.event.pageX + 15) + "px")
+            .style("top", (d3.event.pageY - 28) + "px")
+            .transition().duration(400)
+            .style("opacity", 1)
+            .text(text)
 
-;
-
-}
+            //console.log(d)
+  }
 
 
 
@@ -103,13 +104,18 @@ d3.selectAll(".Country")
     .transition()
     .duration(200)
     .style("opacity", 1)
+    // .attr("fill", function(d) {
+    //     d.total = data.get(d.id) || 0;
+    //     return colorScale(d.total);
+    //   })
     .style("stroke", "black");
 tooltip.transition().duration(300)
     .style("opacity", 0);
+
 }
 
 // Draw the map
-svg.append("g")
+choro.append("g")
   .selectAll("path")
   .data(topo.features)
   .enter()
@@ -131,17 +137,17 @@ svg.append("g")
 
   // add a class, styling and mouseover/mouseleave and click functions
   .style("stroke", "black")
-  .attr("class", function(d) {
-    return "Country"
-  })
-  .attr("id", function(d) {
-    return d.id
-  })
+  // .attr("class", function(d) {
+  //   return "Country"
+  // })
+  // .attr("id", function(d) {
+  //   return d.id
+  // })
   .style("opacity", 1)
   .on("mouseover", mouseOver)
   .on("mouseleave", mouseLeave);
 
-svg.append("text")
+choro.append("text")
   .attr("transform", "translate(-5, 0)")
   .attr("x", 15)
   .attr("y", 125)
@@ -153,7 +159,7 @@ const linear = d3.scaleLinear()
   .domain([125, 250, 375, 500, 625, 750, 875, 1000])
   .range(["#ffeda0", "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c", "#bd0026", "#800026"]);
 
-svg.append("g")
+choro.append("g")
   .attr("class", "legendLinear")
   .attr("transform", "translate(350,525)");
 
@@ -166,7 +172,7 @@ const legendLinear = d3.legendColor()
   .orient('horizontal')
   .scale(linear);
 
-svg.select(".legendLinear")
+choro.select(".legendLinear")
   .call(legendLinear);
 
 }
